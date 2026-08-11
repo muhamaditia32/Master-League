@@ -1,281 +1,240 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Master League</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+<title>Master League</title>
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 </head>
-
 <body>
-
-    <!-- MAIN MENU -->
-    <main id="main-menu" class="screen active">
-
-        <div class="logo">⚽</div>
-
-        <h1>MASTER LEAGUE</h1>
-
-        <p class="subtitle">
-            REAL WORLD FOOTBALL SIMULATION
-        </p>
-
-        <div class="menu-buttons">
-
-            <button onclick="newCareer()">
-                NEW CAREER
-            </button>
-
-            <button onclick="continueGame()">
-                CONTINUE
-            </button>
-
-            <button onclick="loadGame()">
-                LOAD GAME
-            </button>
-
-            <button onclick="settings()">
-                SETTINGS
-            </button>
-
-        </div>
-
-        <p class="version">
-            Version 0.2 — Career Prototype
-        </p>
-
-    </main>
-
-
-    <!-- NEW CAREER -->
-    <main id="career-screen" class="screen">
-
-        <button class="back-button" onclick="showMainMenu()">
-            ← BACK
+<!-- =========================================
+     MAIN MENU
+========================================== -->
+<main
+    id="main-menu"
+    class="screen active"
+>
+    <div class="logo">
+        ⚽
+    </div>
+    <h1>
+        MASTER LEAGUE
+    </h1>
+    <p class="subtitle">
+        REAL WORLD FOOTBALL SIMULATION
+    </p>
+    <div class="menu-buttons">
+        <button onclick="newCareer()">
+            NEW CAREER
         </button>
-
-        <h2>CREATE YOUR CAREER</h2>
-
-        <p class="section-subtitle">
-            Build your football career
-        </p>
-
-
-        <!-- MANAGER -->
-        <section class="career-section">
-
-            <label for="manager-name">
-                MANAGER NAME
-            </label>
-
-            <input
-                type="text"
-                id="manager-name"
-                placeholder="Enter manager name"
-                maxlength="30"
-            >
-
-        </section>
-
-
-        <!-- LEAGUE -->
-        <section class="career-section">
-
-            <label for="league-select">
-                CHOOSE LEAGUE
-            </label>
-
-            <select id="league-select" onchange="updateClubs()">
-
-                <option value="">
-                    Select a league
-                </option>
-
-                <option value="england">
-                    🏴 England — Premier League
-                </option>
-
-                <option value="spain">
-                    🇪🇸 Spain — La Liga
-                </option>
-
-                <option value="italy">
-                    🇮🇹 Italy — Serie A
-                </option>
-
-                <option value="germany">
-                    🇩🇪 Germany — Bundesliga
-                </option>
-
-                <option value="france">
-                    🇫🇷 France — Ligue 1
-                </option>
-
-                <option value="saudi">
-                    🇸🇦 Saudi Arabia — Saudi Pro League
-                </option>
-
-                <option value="usa">
-                    🇺🇸 USA — MLS
-                </option>
-
-                <option value="brazil">
-                    🇧🇷 Brazil — Brasileirão
-                </option>
-
-                <option value="argentina">
-                    🇦🇷 Argentina — Liga Profesional
-                </option>
-
-                <option value="japan">
-                    🇯🇵 Japan — J1 League
-                </option>
-
-            </select>
-
-        </section>
-
-
-        <!-- CLUB -->
-        <section class="career-section">
-
-            <label for="club-select">
-                CHOOSE CLUB
-            </label>
-
-            <select id="club-select">
-
-                <option value="">
-                    Select a league first
-                </option>
-
-            </select>
-
-        </section>
-
-
-        <!-- CLUB INFO -->
-        <section id="club-info" class="club-info">
-
-            <h3 id="club-name">
-                Select your club
-            </h3>
-
-            <p id="club-details">
-                Club information will appear here.
-            </p>
-
-        </section>
-
-
-        <button
-            class="start-button"
-            onclick="startCareer()"
+        <button onclick="continueGame()">
+            CONTINUE
+        </button>
+        <button onclick="loadGame()">
+            LOAD GAME
+        </button>
+        <button onclick="settings()">
+            SETTINGS
+        </button>
+    </div>
+    <p class="version">
+        Version 0.2 — Career Prototype
+    </p>
+</main>
+<!-- =========================================
+     CREATE CAREER
+========================================== -->
+<main
+    id="career-screen"
+    class="screen"
+>
+    <button
+        class="back-button"
+        onclick="showMainMenu()"
+    >
+        ← BACK
+    </button>
+    <h2>
+        CREATE YOUR CAREER
+    </h2>
+    <p class="section-subtitle">
+        Build your football career
+    </p>
+    <!-- MANAGER NAME -->
+    <section class="career-section">
+        <label for="manager-name">
+            MANAGER NAME
+        </label>
+        <input
+            type="text"
+            id="manager-name"
+            placeholder="Enter manager name"
+            maxlength="30"
+            autocomplete="off"
         >
-            START CAREER ⚽
-        </button>
-
-    </main>
-
-
-    <!-- DASHBOARD -->
-    <main id="dashboard-screen" class="screen">
-
-        <div class="dashboard-header">
-
-            <div>
-                <p class="small-title">
-                    MASTER LEAGUE
-                </p>
-
-                <h2 id="dashboard-club">
-                    Club
-                </h2>
-            </div>
-
-            <div class="date-box">
-
-                <span id="game-date">
-                    1 July 2026
-                </span>
-
-            </div>
-
+    </section>
+    <!-- LEAGUE -->
+    <section class="career-section">
+        <label for="league-select">
+            CHOOSE LEAGUE
+        </label>
+        <select
+            id="league-select"
+            onchange="updateClubs()"
+        >
+            <option value="">
+                Select a league
+            </option>
+            <option value="england">
+                🏴 England — Premier League
+            </option>
+            <option value="spain">
+                🇪🇸 Spain — La Liga
+            </option>
+            <option value="italy">
+                🇮🇹 Italy — Serie A
+            </option>
+            <option value="germany">
+                🇩🇪 Germany — Bundesliga
+            </option>
+            <option value="france">
+                🇫🇷 France — Ligue 1
+            </option>
+            <option value="saudi">
+                🇸🇦 Saudi Arabia — Saudi Pro League
+            </option>
+            <option value="usa">
+                🇺🇸 USA — MLS
+            </option>
+            <option value="brazil">
+                🇧🇷 Brazil — Brasileirão
+            </option>
+            <option value="argentina">
+                🇦🇷 Argentina — Liga Profesional
+            </option>
+            <option value="japan">
+                🇯🇵 Japan — J1 League
+            </option>
+        </select>
+    </section>
+    <!-- CLUB -->
+    <section class="career-section">
+        <label for="club-select">
+            CHOOSE CLUB
+        </label>
+        <select id="club-select">
+            <option value="">
+                Select a league first
+            </option>
+        </select>
+    </section>
+    <!-- =========================================
+         CLUB INFORMATION
+    ========================================== -->
+    <section
+        id="club-info"
+        class="club-info"
+    >
+        <h3 id="club-name">
+            Select your club
+        </h3>
+        <p id="club-details">
+            Club information will appear here.
+        </p>
+    </section>
+    <!-- START CAREER -->
+    <button
+        class="start-button"
+        onclick="startCareer()"
+    >
+        START CAREER ⚽
+    </button>
+</main>
+<!-- =========================================
+     DASHBOARD
+========================================== -->
+<main
+    id="dashboard-screen"
+    class="screen"
+>
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <div>
+            <p class="small-title">
+                MASTER LEAGUE
+            </p>
+            <h2 id="dashboard-club">
+                Club
+            </h2>
         </div>
-
-
-        <section class="dashboard-card">
-
+        <div class="date-box">
+            <span id="game-date">
+                1 July 2026
+            </span>
+        </div>
+    </div>
+    <!-- MANAGER -->
+    <section class="dashboard-card">
+        <p class="card-label">
+            MANAGER
+        </p>
+        <h3 id="dashboard-manager">
+            Manager
+        </h3>
+    </section>
+    <!-- SEASON / BALANCE -->
+    <section class="dashboard-grid">
+        <div class="dashboard-card">
             <p class="card-label">
-                MANAGER
+                SEASON
             </p>
-
-            <h3 id="dashboard-manager">
-                Manager
+            <h3 id="dashboard-season">
+                2026/27
             </h3>
-
-        </section>
-
-
-        <section class="dashboard-grid">
-
-            <div class="dashboard-card">
-
-                <p class="card-label">
-                    SEASON
-                </p>
-
-                <h3>
-                    2026/27
-                </h3>
-
-            </div>
-
-
-            <div class="dashboard-card">
-
-                <p class="card-label">
-                    BALANCE
-                </p>
-
-                <h3 id="dashboard-budget">
-                    €0M
-                </h3>
-
-            </div>
-
-        </section>
-
-
-        <section class="next-event">
-
+        </div>
+        <div class="dashboard-card">
             <p class="card-label">
-                NEXT EVENT
+                BALANCE
             </p>
-
-            <h3>
-                🏃 Pre-season
+            <h3 id="dashboard-budget">
+                €0M
             </h3>
-
-            <p>
-                The new season is about to begin.
-            </p>
-
-        </section>
-
-
-        <button onclick="saveGame()" class="save-button">
-            💾 SAVE GAME
-        </button>
-
-    </main>
-    
-
-    <script src="data/leagues.js"></script>
-    <script src="data/clubs.js"></script>
-    <script src="script.js"></script>
-
+        </div>
+    </section>
+    <!-- NEXT EVENT -->
+    <section class="next-event">
+        <p class="card-label">
+            NEXT EVENT
+        </p>
+        <h3>
+            🏃 Pre-season
+        </h3>
+        <p>
+            The new season is about to begin.
+        </p>
+    </section>
+    <!-- SAVE -->
+    <button
+        onclick="saveGame()"
+        class="save-button"
+    >
+        💾 SAVE GAME
+    </button>
+</main>
+<!-- =========================================
+     JAVASCRIPT
+     
+     IMPORTANT:
+     clubs.js MUST load before script.js
+========================================== -->
+<script src="data/leagues.js"></script>
+<script src="data/clubs.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
