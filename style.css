@@ -11,14 +11,29 @@ body {
     min-height: 100vh;
 }
 
-.menu {
+.screen {
+    display: none;
     min-height: 100vh;
-    display: flex;
+    padding: 30px 20px;
+}
+
+.screen.active {
+    display: block;
+}
+
+
+/* MAIN MENU */
+
+#main-menu {
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30px;
+}
+
+#main-menu.active {
+    display: flex;
 }
 
 .logo {
@@ -27,15 +42,15 @@ body {
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 40px;
     letter-spacing: 4px;
     margin-bottom: 8px;
 }
 
 .subtitle {
     color: #9da7b3;
-    font-size: 13px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
     margin-bottom: 45px;
 }
 
@@ -54,18 +69,13 @@ button {
     border-radius: 8px;
     background: #151b23;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     letter-spacing: 1px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #222b36;
 }
 
 button:first-child {
-    background: #ffffff;
+    background: white;
     color: #0b0f14;
 }
 
@@ -73,4 +83,140 @@ button:first-child {
     margin-top: 45px;
     color: #59636f;
     font-size: 12px;
+}
+
+
+/* CAREER */
+
+#career-screen {
+    max-width: 600px;
+    margin: auto;
+}
+
+.back-button {
+    width: auto;
+    padding: 10px 16px;
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: #8f99a5;
+    margin-bottom: 35px;
+}
+
+.career-section {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    color: #9da7b3;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #3a4350;
+    background: #151b23;
+    color: white;
+    font-size: 15px;
+}
+
+.club-info {
+    padding: 20px;
+    margin: 25px 0;
+    border: 1px solid #303944;
+    border-radius: 10px;
+    background: #11171e;
+}
+
+.club-info h3 {
+    margin-bottom: 8px;
+}
+
+.club-info p {
+    color: #9da7b3;
+    line-height: 1.6;
+}
+
+.start-button {
+    background: white;
+    color: #0b0f14;
+    margin-top: 10px;
+}
+
+
+/* DASHBOARD */
+
+#dashboard-screen {
+    max-width: 700px;
+    margin: auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.small-title {
+    color: #7d8793;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.date-box {
+    padding: 10px 14px;
+    border: 1px solid #303944;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.dashboard-card,
+.next-event {
+    background: #11171e;
+    border: 1px solid #303944;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.card-label {
+    color: #7d8793;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.next-event {
+    margin-top: 15px;
+}
+
+.next-event p:last-child {
+    color: #9da7b3;
+    margin-top: 8px;
+}
+
+.save-button {
+    margin-top: 10px;
 }
