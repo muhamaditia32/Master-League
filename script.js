@@ -41,23 +41,28 @@ function showMainMenu() {
 
 function updateClubs() {
 
-    const league = document.getElementById("league-select").value;
+    const league =
+        document.getElementById("league-select").value;
 
-    const clubSelect = document.getElementById("club-select");
+    const clubSelect =
+        document.getElementById("club-select");
 
     clubSelect.innerHTML =
         '<option value="">Select a club</option>';
 
-    if (!league || !clubs[league]) {
+    if (!league) {
         return;
     }
 
-    clubs[league].forEach((club, index) => {
+    const leagueClubs =
+        clubs.filter(club => club.league === league);
 
-        const option = document.createElement("option");
+    leagueClubs.forEach(club => {
 
-        option.value = index;
+        const option =
+            document.createElement("option");
 
+        option.value = club.id;
         option.textContent = club.name;
 
         clubSelect.appendChild(option);
@@ -69,7 +74,8 @@ function updateClubs() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const clubSelect = document.getElementById("club-select");
+    const clubSelect =
+        document.getElementById("club-select");
 
     if (!clubSelect) {
         return;
@@ -77,35 +83,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     clubSelect.addEventListener("change", function () {
 
-        const league =
-            document.getElementById("league-select").value;
+        const clubId = this.value;
 
-        const clubIndex = this.value;
+        const club =
+            clubs.find(club => club.id === clubId);
 
-        if (
-            league &&
-            clubIndex !== "" &&
-            clubs[league] &&
-            clubs[league][clubIndex]
-        ) {
-
-            const club = clubs[league][clubIndex];
-
-            document.getElementById("club-name").textContent =
-                club.name;
-
-            document.getElementById("club-details").textContent =
-                "Transfer Budget: €" +
-                club.budget +
-                "M  •  Reputation: " +
-                club.reputation +
-                "/5";
+        if (!club) {
+            return;
         }
+
+        document.getElementById("club-name").textContent =
+            club.name;
+
+        document.getElementById("club-details").textContent =
+            "Transfer Budget: €" +
+            club.budget +
+            "M  •  Reputation: " +
+            club.reputation +
+            "/5";
 
     });
 
 });
-
 
 function startCareer() {
 
@@ -136,9 +135,17 @@ function startCareer() {
 
 
     const selectedClub =
-        clubs[league][clubIndex];
+    clubs.find(club => club.id === clubIndex);
 
 
+    if (!selectedClub) {
+
+    alert("Klub tidak ditemukan.");
+
+    return;
+}
+
+    
     career = {
 
         manager: managerName,
