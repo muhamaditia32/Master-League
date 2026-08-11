@@ -1,3 +1,6 @@
+console.log("SCRIPT.JS BERHASIL DIBACA");
+console.log("DATA CLUBS:", clubs);
+
 let career = {
     manager: "",
     league: "",
