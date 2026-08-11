@@ -169,7 +169,11 @@ function showScreen(screenId) {
         screen.classList.remove("active");
     });
 
-    document.getElementById(screenId).classList.add("active");
+    const target = document.getElementById(screenId);
+
+    if (target) {
+        target.classList.add("active");
+    }
 }
 
 
