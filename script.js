@@ -400,3 +400,9 @@ function settings() {
     alert("Settings akan kita buat nanti.");
 
 }
+
+console.log("DATABASE LOADED");
+
+console.log("Leagues:", leagues.length);
+console.log("Clubs:", clubs.length);
+console.log("Players:", players.length);
