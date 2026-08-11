@@ -400,6 +400,3 @@ function settings() {
     alert("Settings akan kita buat nanti.");
 
 }
-
-console.log("DATABASE LOADED");
-
