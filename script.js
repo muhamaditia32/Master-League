@@ -219,32 +219,42 @@ function updateClubs() {
 }
 
 
-document.getElementById("club-select").addEventListener("change", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const league = document.getElementById("league-select").value;
+    const clubSelect = document.getElementById("club-select");
 
-    const clubIndex = this.value;
-
-    if (
-        league &&
-        clubIndex !== "" &&
-        clubs[league] &&
-        clubs[league][clubIndex]
-    ) {
-
-        const club = clubs[league][clubIndex];
-
-        document.getElementById("club-name").textContent =
-            club.name;
-
-        document.getElementById("club-details").textContent =
-            "Transfer Budget: €" +
-            club.budget +
-            "M  •  Reputation: " +
-            club.reputation +
-            "/5";
-
+    if (!clubSelect) {
+        return;
     }
+
+    clubSelect.addEventListener("change", function () {
+
+        const league =
+            document.getElementById("league-select").value;
+
+        const clubIndex = this.value;
+
+        if (
+            league &&
+            clubIndex !== "" &&
+            clubs[league] &&
+            clubs[league][clubIndex]
+        ) {
+
+            const club = clubs[league][clubIndex];
+
+            document.getElementById("club-name").textContent =
+                club.name;
+
+            document.getElementById("club-details").textContent =
+                "Transfer Budget: €" +
+                club.budget +
+                "M  •  Reputation: " +
+                club.reputation +
+                "/5";
+        }
+
+    });
 
 });
 
