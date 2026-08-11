@@ -403,6 +403,3 @@ function settings() {
 
 console.log("DATABASE LOADED");
 
-console.log("Leagues:", leagues.length);
-console.log("Clubs:", clubs.length);
-console.log("Players:", players.length);
